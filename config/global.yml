@@ -1,0 +1,8 @@
+max_color_delta: 16
+mouse_sleep:
+  min: 0.3
+  max: 0.5
+waiting:
+  first: 3
+  increase: 3
+  max: 30

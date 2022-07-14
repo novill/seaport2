@@ -1,0 +1,42 @@
+default:
+  active_color: ''
+  inactive_color: ''
+  sheet_size:
+    x: 39
+    y: 31
+oil_field:
+  x: 549
+  y: 599
+small_town:
+  x: 1039
+  y: 744
+gulf:
+  x: 753
+  y: 659
+  active_color: ''
+quest:
+  x: 1180
+  y: 434
+  active_color: ''
+  inactive_color: '#A6A6A6'
+  ready_sign:
+    x: 1218
+    y: 435
+    right_down:
+      x: 1238
+      y: 457
+    active_color: ''
+  window:
+    collect_all_btn:
+      x: 707
+      y: 717
+      right_down:
+        x: 813
+        y: 740
+      inactive_color:
+        - "#85858A"
+        - "#747474"
+        - "#656565"
+      active_color:
+
+
