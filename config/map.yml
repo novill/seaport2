@@ -17,26 +17,70 @@ gulf:
 quest:
   x: 1180
   y: 434
-  active_color: ''
+  active_color: '#FFCC00'
   inactive_color: '#A6A6A6'
   ready_sign:
-    x: 1218
-    y: 435
+    x: 1215
+    y: 445
     right_down:
       x: 1238
       y: 457
-    active_color: ''
+    active_color:
+      - '#595966'
+      - '#5DF80F'
+      - "#1EE51A"
+      - "#22E619"
+      - "#34EC16"
+      - "#47F213"
+      - "#55F610"
+      - "#07DE1E"
+      - "#19E41B"
+      - "#34EC16"
   window:
-    collect_all_btn:
+    claim_btn:
+      x: 974
+      y: 621
+      right_down:
+        x: 1111
+        y: 658
+    collect_all_ships_btn:
       x: 707
       y: 717
       right_down:
         x: 813
         y: 740
-      inactive_color:
-        - "#85858A"
-        - "#747474"
-        - "#656565"
-      active_color:
+    collect_ok_btn:
+      x: 914
+      y: 730
+      right_down:
+        x: 1052
+        y: 780
+    task_full_sign:
+      x: 908
+      y: 566
+      active_color: '#4AF212'
+    task_bar:
+      x: 943
+      y: 609
+      full_color: '#08084D'
+    top_ship:
+      x: 665
+      y: 350
+      right_down:
+        x: 844
+        y: 434
+    sail_btn:
+      x: 723
+      y: 379
+      right_down:
+        x: 832
+        y: 403
+    close_btn:
+      x: 1311
+      y: 311
+      right_down:
+        x: 1331
+        y: 330
+
 
 

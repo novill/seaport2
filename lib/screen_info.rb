@@ -2,19 +2,41 @@ require_relative '../config/global'
 
 class ScreenInfo
   def self.get_pixel_color(*args)
-    x, y = args.to_a.flatten
+    if args[0].is_a?(Hash)
+      x, y = args[0].values_at('x', 'y')
+    else
+      x, y = args.to_a.flatten
+    end
     pixel_command = "/usr/bin/import -silent -window root -crop 1x1+#{x}+#{y} -depth 8 txt:-"
     `#{pixel_command}`.split(' ')[-2]
   end
 
   def self.check_pixel_color(*args)
-    raise "Bad color #{args[-1]}" unless args[-1] =~ /#[0-9A-F]{6}/
-    similar_color?(args[-1], get_pixel_color(args[0..-2]))
+    # puts args.to_s
+    if args[0].is_a?(Hash)
+      x, y = args[0].values_at('x', 'y')
+    else
+      x, y = args.to_a.flatten
+    end
+
+    state_colors = (args[-1].is_a?(String) or args[-1].is_a?(Array)) ? args[-1] :args[0]["#{args[-1]}_color"]
+    current_color = get_pixel_color(x, y)
+
+    res = [state_colors].flatten.any? do |state_color|
+      raise "Bad color #{state_color}" unless state_color =~ /#[0-9A-F]{6}/
+      similar_color?(state_color, current_color)
+    end
+
+    puts "Expected #{state_colors} get #{current_color} on #{x} #{y}" unless res
+    res
   end
 
   private
-  
+
   def self.similar_color?(color1, color2)
+    raise "Bad color #{color1}" unless color1 =~ /#[0-9A-F]{6}/
+    raise "Bad color #{color2}" unless color2 =~ /#[0-9A-F]{6}/
+
     rgb16 = [[color1[1..2], color2[1..2]],
       [color1[3..4], color2[3..4]],
       [color1[5..6], color2[5..6]]]
